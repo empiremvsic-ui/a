@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Unreel</string>
+    <string name="service_label">Unreel blocker</string>
+    <string name="service_description">Unreel watches only Instagram, YouTube, Facebook, TikTok and Snapchat. When it sees the Reels or Shorts player on screen, it presses Back for you. It has no internet permission, so nothing it sees can leave your phone.</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- packageNames limits the service to these apps only: Android will not send it
+     anything from your other apps (banking, messages, etc.). -->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeWindowStateChanged|typeWindowContentChanged"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagReportViewIds|flagIncludeNotImportantViews"
+    android:canRetrieveWindowContent="true"
+    android:notificationTimeout="100"
+    android:description="@string/service_description"
+    android:packageNames="com.instagram.android,com.google.android.youtube,com.facebook.katana,com.zhiliaoapp.musically,com.ss.android.ugc.trill,com.snapchat.android" />

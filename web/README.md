@@ -17,7 +17,7 @@ It's one file, `unreel.user.js`, about 120 lines. You can read all of it in a fe
    You'll see the script as plain text. That's normal.
    https://raw.githubusercontent.com/empiremvsic-ui/a/7c80a67c7d042d1c236d1bdf4608874af35baa8e/web/unreel.user.js
 5. Tap **Share → Save to Files**, choose your Userscripts folder, make sure the name ends in
-   \`.user.js\` (not \`.txt\`), and tap **Save**. Then open instagram.com, tap the **AA** /
+   `.user.js` (not `.txt`), and tap **Save**. Then open instagram.com, tap the **AA** /
    puzzle icon → **Userscripts**, and check that **Unreel** is listed and on.
    (Saving the file this way means Userscripts never needs permission on the download site.)
 6. Delete the Instagram, YouTube, Facebook and TikTok apps. In Safari, open each site,

@@ -13,9 +13,13 @@ It's one file, `unreel.user.js`, about 120 lines. You can read all of it in a fe
 3. Settings → **Apps → Safari → Extensions → Userscripts**: turn it on. Under
    **Permissions**, do **not** choose "All Websites". Allow only:
    `instagram.com`, `youtube.com`, `facebook.com`, `tiktok.com`.
-4. In Safari, open this link. It's pinned to an exact commit, so its contents can never change:
+4. In Safari, open this link. It's pinned to an exact commit, so its contents can never change.
+   You'll see the script as plain text. That's normal.
    https://raw.githubusercontent.com/empiremvsic-ui/a/7c80a67c7d042d1c236d1bdf4608874af35baa8e/web/unreel.user.js
-5. Tap the **puzzle icon / AA** in the address bar → **Userscripts** → **Install**.
+5. Tap **Share → Save to Files**, choose your Userscripts folder, make sure the name ends in
+   \`.user.js\` (not \`.txt\`), and tap **Save**. Then open instagram.com, tap the **AA** /
+   puzzle icon → **Userscripts**, and check that **Unreel** is listed and on.
+   (Saving the file this way means Userscripts never needs permission on the download site.)
 6. Delete the Instagram, YouTube, Facebook and TikTok apps. In Safari, open each site,
    log in, then Share → **Add to Home Screen** for an app-like icon.
 

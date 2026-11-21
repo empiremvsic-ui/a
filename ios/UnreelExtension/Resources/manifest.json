@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "default_locale": "en",
+  "name": "Unreel",
+  "description": "Hides Reels, Shorts and TikTok. Runs only on your device.",
+  "version": "1.0",
+  "icons": { "128": "icon.svg" },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.instagram.com/*",
+        "*://*.youtube.com/*",
+        "*://*.tiktok.com/*",
+        "*://*.facebook.com/*"
+      ],
+      "js": ["unreel.js"],
+      "css": ["unreel.css"],
+      "run_at": "document_start"
+    }
+  ]
+}

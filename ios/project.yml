@@ -1,0 +1,51 @@
+# Xcode project definition. Generate the .xcodeproj with:  brew install xcodegen && xcodegen
+name: Unreel
+options:
+  bundleIdPrefix: com.unreel
+  deploymentTarget:
+    iOS: "16.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    TARGETED_DEVICE_FAMILY: "1,2"
+targets:
+  Unreel:
+    type: application
+    platform: iOS
+    sources:
+      - path: Unreel
+    info:
+      path: Unreel/Info.plist
+      properties:
+        CFBundleDisplayName: Unreel
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.unreel.app
+    dependencies:
+      - target: UnreelExtension
+  UnreelExtension:
+    type: app-extension
+    platform: iOS
+    sources:
+      - path: UnreelExtension
+        excludes: ["Resources/**"]
+      - path: UnreelExtension/Resources
+        buildPhase: resources
+    info:
+      path: UnreelExtension/Info.plist
+      properties:
+        CFBundleDisplayName: Unreel
+        CFBundleShortVersionString: $(MARKETING_VERSION)
+        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
+        NSExtension:
+          NSExtensionPointIdentifier: com.apple.Safari.web-extension
+          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).SafariWebExtensionHandler
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.unreel.app.extension

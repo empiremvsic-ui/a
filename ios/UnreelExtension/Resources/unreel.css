@@ -1,0 +1,15 @@
+/* Instagram: Reels tab and links into Reels */
+a[href^="/reels"], a[href^="/reel/"],
+a[href^="https://www.instagram.com/reels"] { display: none !important; }
+
+/* YouTube (mobile site + desktop site): Shorts tab, shelves and links */
+ytm-reel-shelf-renderer, ytd-reel-shelf-renderer,
+ytm-shorts-lockup-view-model, ytm-shorts-lockup-view-model-v2,
+ytd-rich-shelf-renderer[is-shorts], grid-shelf-view-model,
+ytm-pivot-bar-item-renderer:has(.pivot-shorts),
+ytd-guide-entry-renderer:has(a[title="Shorts"]),
+ytd-mini-guide-entry-renderer[aria-label="Shorts"],
+a[href^="/shorts"] { display: none !important; }
+
+/* Facebook: Reels links */
+a[href*="/reel/"], a[href*="/reels/"] { display: none !important; }

@@ -1,0 +1,52 @@
+name: Build iOS app
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate Xcode project
+        working-directory: ios
+        run: |
+          brew install xcodegen
+          xcodegen
+
+      - name: Build (unsigned)
+        working-directory: ios
+        run: |
+          xcodebuild -project Unreel.xcodeproj -scheme Unreel -configuration Release \
+            -sdk iphoneos -derivedDataPath build \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY="" build
+
+      - name: Package
+        run: |
+          mkdir Payload
+          cp -R ios/build/Build/Products/Release-iphoneos/Unreel.app Payload/
+          zip -qr Unreel-unsigned.ipa Payload
+          # Ready-to-open Xcode project for building on your own Mac.
+          (cd ios && rm -rf build && zip -qr ../Unreel-ios-project.zip .)
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Unreel-ios
+          path: |
+            Unreel-unsigned.ipa
+            Unreel-ios-project.zip
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete ios-latest --yes --cleanup-tag || true
+          gh release create ios-latest Unreel-unsigned.ipa Unreel-ios-project.zip \
+            --title "Unreel for iPhone (latest build)" \
+            --notes "Built from ${GITHUB_SHA::7}. Unreel-ios-project.zip: open Unreel.xcodeproj in Xcode on a Mac and run it on your iPhone. Unreel-unsigned.ipa: for signing with your own Apple ID." \
+            --target "$GITHUB_SHA"

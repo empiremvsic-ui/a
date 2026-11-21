@@ -5,3 +5,7 @@ local.properties
 *.iml
 captures/
 .DS_Store
+ios/Unreel.xcodeproj/
+ios/build/
+Payload/
+*.ipa

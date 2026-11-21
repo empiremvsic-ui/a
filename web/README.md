@@ -7,8 +7,7 @@ It's one file, `unreel.user.js`, about 120 lines. You can read all of it in a fe
 
 ## Install (about 5 minutes)
 
-1. Install **Userscripts** from the App Store (free, open source, by Justin Wasack /
-   "quoid": github.com/quoid/userscripts).
+1. Install **Userscripts** from the App Store (free and open source: github.com/quoid/userscripts).
 2. Open the Userscripts app, tap **Set Userscripts Directory**, and pick a new empty folder
    in Files (e.g. *On My iPhone → Userscripts*).
 3. Settings → **Apps → Safari → Extensions → Userscripts**: turn it on. Under

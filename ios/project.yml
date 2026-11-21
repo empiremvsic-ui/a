@@ -16,6 +16,9 @@ targets:
     platform: iOS
     sources:
       - path: Unreel
+        excludes: ["Web/**"]
+      - path: Unreel/Web
+        buildPhase: resources
     info:
       path: Unreel/Info.plist
       properties:
@@ -24,28 +27,9 @@ targets:
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        NSCameraUsageDescription: Lets you take photos and videos to post.
+        NSMicrophoneUsageDescription: Lets you record videos and voice messages.
+        NSPhotoLibraryUsageDescription: Lets you pick photos and videos to post.
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.unreel.app
-    dependencies:
-      - target: UnreelExtension
-  UnreelExtension:
-    type: app-extension
-    platform: iOS
-    sources:
-      - path: UnreelExtension
-        excludes: ["Resources/**"]
-      - path: UnreelExtension/Resources
-        buildPhase: resources
-    info:
-      path: UnreelExtension/Info.plist
-      properties:
-        CFBundleDisplayName: Unreel
-        CFBundleShortVersionString: $(MARKETING_VERSION)
-        CFBundleVersion: $(CURRENT_PROJECT_VERSION)
-        NSExtension:
-          NSExtensionPointIdentifier: com.apple.Safari.web-extension
-          NSExtensionPrincipalClass: $(PRODUCT_MODULE_NAME).SafariWebExtensionHandler
-    settings:
-      base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.unreel.app.extension

@@ -1,4 +1,4 @@
-// Unreel: runs only inside Safari, only on the sites listed in manifest.json.
+// Unreel: injected into every page the app loads, before the page's own code runs.
 // It never sends anything anywhere.
 (() => {
   const host = location.hostname;

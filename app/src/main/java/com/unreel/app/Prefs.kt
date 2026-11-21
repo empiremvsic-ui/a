@@ -7,7 +7,7 @@ class Prefs(context: Context) {
     private val sp = context.getSharedPreferences("unreel", Context.MODE_PRIVATE)
 
     fun isEnabled(rule: Rule): Boolean =
-        sp.getBoolean("on_${rule.key}", rule in Rules.shortForm) // short-form on by default, whole apps off
+        sp.getBoolean("on_${rule.key}", rule.defaultOn)
 
     fun setEnabled(rule: Rule, on: Boolean) = sp.edit().putBoolean("on_${rule.key}", on).apply()
 

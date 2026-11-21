@@ -8,4 +8,4 @@
     android:canRetrieveWindowContent="true"
     android:notificationTimeout="100"
     android:description="@string/service_description"
-    android:packageNames="com.instagram.android,com.google.android.youtube,com.facebook.katana,com.zhiliaoapp.musically,com.ss.android.ugc.trill,com.snapchat.android" />
+    android:packageNames="com.instagram.android,com.google.android.youtube,com.facebook.katana,com.zhiliaoapp.musically,com.ss.android.ugc.trill,com.zhiliaoapp.musically.go,com.ss.android.ugc.tiktok.lite,com.snapchat.android" />

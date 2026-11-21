@@ -12,9 +12,17 @@ data class Rule(
     val title: String,
     val packages: Set<String>,
     val defaultHints: List<String>,
+    val defaultOn: Boolean = true,
 )
 
 object Rules {
+    private val TIKTOK = setOf(
+        "com.zhiliaoapp.musically",          // TikTok
+        "com.ss.android.ugc.trill",          // TikTok (some regions)
+        "com.zhiliaoapp.musically.go",       // TikTok Lite
+        "com.ss.android.ugc.tiktok.lite",    // TikTok Lite (some regions)
+    )
+
     val shortForm = listOf(
         Rule(
             key = "ig_reels",
@@ -32,9 +40,10 @@ object Rules {
 
     /** Apps that are basically nothing but short videos: optionally block the whole app. */
     val wholeApps = listOf(
-        Rule("app_tiktok", "TikTok (whole app)", setOf("com.zhiliaoapp.musically", "com.ss.android.ugc.trill"), emptyList()),
-        Rule("app_facebook", "Facebook (whole app)", setOf("com.facebook.katana"), emptyList()),
-        Rule("app_snapchat", "Snapchat (whole app)", setOf("com.snapchat.android"), emptyList()),
+        // TikTok is all short videos, so the whole app is blocked. On by default. Includes TikTok Lite.
+        Rule("app_tiktok", "TikTok (whole app)", TIKTOK, emptyList()),
+        Rule("app_facebook", "Facebook (whole app)", setOf("com.facebook.katana"), emptyList(), defaultOn = false),
+        Rule("app_snapchat", "Snapchat (whole app)", setOf("com.snapchat.android"), emptyList(), defaultOn = false),
     )
 
     fun shortFormFor(pkg: String): Rule? = shortForm.firstOrNull { pkg in it.packages }

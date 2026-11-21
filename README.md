@@ -18,7 +18,8 @@ posts and normal videos, without falling into Reels or Shorts.
 | --- | --- |
 | Instagram | The Reels player (Reels tab, and reels opened from DMs or the feed). It presses Back for you. |
 | YouTube | The Shorts player. It presses Back for you. |
-| TikTok, Facebook, Snapchat | Optional: block the whole app (off by default). It goes to your home screen. |
+| TikTok (and TikTok Lite) | The whole app, since it's all short videos. On by default. It sends you to your home screen. |
+| Facebook, Snapchat | Optional: block the whole app (off by default). It goes to your home screen. |
 
 If Back doesn't get you out (for example when the app opened straight into Reels), it sends you
 to your home screen instead. There's a 5 or 15 minute pause button if you really need one.

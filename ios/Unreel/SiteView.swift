@@ -1,3 +1,4 @@
+import SafariServices
 import SwiftUI
 import WebKit
 
@@ -78,13 +79,26 @@ struct SiteView: UIViewRepresentable {
 
             if url.scheme == "http" || url.scheme == "https" {
                 if Site.matches(host, Site.allowedDomains) { return decisionHandler(.allow) }
-                UIApplication.shared.open(url) // other websites open in Safari
+                openInAppBrowser(url, from: webView) // other websites open in a browser page inside the app
                 return decisionHandler(.cancel)
             }
             if url.scheme == "about" || url.scheme == "blob" || url.scheme == "data" {
                 return decisionHandler(.allow)
             }
             decisionHandler(.cancel) // ignore "open in the Instagram app" style links
+        }
+
+        /// Shows a Safari page on top of the app, with a Done button to come back.
+        /// Its cookies are kept apart from the Instagram/YouTube/Facebook tabs.
+        func openInAppBrowser(_ url: URL, from webView: WKWebView) {
+            guard var top = webView.window?.rootViewController else {
+                UIApplication.shared.open(url)
+                return
+            }
+            while let presented = top.presentedViewController { top = presented }
+            let browser = SFSafariViewController(url: url)
+            browser.dismissButtonStyle = .done
+            top.present(browser, animated: true)
         }
 
         /// Links that try to open a new window: open them in the same tab instead.

@@ -12,7 +12,7 @@ enum Site {
     }
 
     /// Sites allowed to open inside the app (the services themselves plus their login pages).
-    /// Any other link opens in Safari instead.
+    /// Any other link opens in a browser page inside the app instead.
     static let allowedDomains = [
         "instagram.com", "cdninstagram.com",
         "facebook.com", "fbcdn.net", "messenger.com",
